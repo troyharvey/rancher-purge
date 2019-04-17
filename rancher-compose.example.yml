@@ -1,0 +1,13 @@
+---
+version: "2"
+
+services:
+  rancher-purge:
+    image: troyharvey/rancher-purge
+    environment:
+      - RANCHER_ENVIRONMENT=${RANCHER_ENVIRONMENT}
+      - RANCHER_URL=${RANCHER_URL}
+      - RANCHER_ACCESS_KEY=${RANCHER_ACCESS_KEY}
+      - RANCHER_SECRET_KEY=${RANCHER_SECRET_KEY}
+      - RANCHER_CLIENT_DEBUG=${RANCHER_CLIENT_DEBUG}
+      - INTERVAL=180

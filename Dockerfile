@@ -2,7 +2,7 @@ FROM alpine:latest
 
 ARG RANCHER_CLI_VERSION=0.6.13
 
-RUN apk --no-cache add curl tar
+RUN apk --no-cache add curl jq tar
 
 # Install the Rancher CLI
 RUN rancher_cli_url="https://github.com/rancher/cli/releases/download/v${RANCHER_CLI_VERSION}/rancher-linux-amd64-v${RANCHER_CLI_VERSION}.tar.gz" \
