@@ -22,7 +22,7 @@ jobs:
           command: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
       - run:
           name: Docker Build
-          command: docker build --build-arg RANCHER_CLI_VERSION=$RANCHER_CLI_VERSION -t troyharvey/rancher-purge:$RANCHER_CLI_VERSION -t troyharvey/rancher-purge:latest
+          command: docker build --build-arg RANCHER_CLI_VERSION=$RANCHER_CLI_VERSION -t troyharvey/rancher-purge:$RANCHER_CLI_VERSION -t troyharvey/rancher-purge:latest /rancher-purge
       - run:
           name: Docker Push
           command: |
