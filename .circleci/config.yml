@@ -1,0 +1,30 @@
+version: 2
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+
+jobs:
+  build:
+    working_directory: /rancher-purge
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Docker Login
+          command: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+      - run:
+          name: Docker Build
+          command: docker build --build-arg RANCHER_CLI_VERSION=$RANCHER_CLI_VERSION -t troyharvey/rancher-purge:$RANCHER_CLI_VERSION -t troyharvey/rancher-purge:latest
+      - run:
+          name: Docker Push
+          command: |
+            docker push troyharvey/rancher-purge:$RANCHER_CLI_VERSION
+            docker push troyharvey/rancher-purge:latest
