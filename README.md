@@ -10,25 +10,19 @@ The purpose of rancher-purge is to keep your rancher hosts uncluttered. Currentl
 
 1. Add your Rancher API credentials to the environment variables.
 
-```
-export RANCHER_ENVIRONMENT=1a211
-export RANCHER_URL=https://rancher.ds.carta.rocks/v2-beta/projects/1a211
-export RANCHER_ACCESS_KEY=D85D...128AF0
-export RANCHER_SECRET_KEY=JWvuC...Uc6TX6DX
-export RANCHER_CLIENT_DEBUG=false
-```
+    export RANCHER_ENVIRONMENT=1a211
+    export RANCHER_URL=https://rancher.ds.carta.rocks/v2-beta/projects/1a211
+    export RANCHER_ACCESS_KEY=D85D...128AF0
+    export RANCHER_SECRET_KEY=JWvuC...Uc6TX6DX
+    export RANCHER_CLIENT_DEBUG=false
 
 1. Copy the example `rancher-compose` file into your Rancher project.
 
-```
-cp ~/rancher-purge/rancher-compose.example.yml rancher-compose.yml
-```
+    cp ~/rancher-purge/rancher-compose.example.yml rancher-compose.yml
 
 1. Start the `rancher-purge` service in a stack named `Maintenance`.
 
-```
-rancher-compose -p Maintenance -f rancher-compose.yml up -d
-```
+    rancher-compose -p Maintenance -f rancher-compose.yml up -d
 
 ## Notes
 
